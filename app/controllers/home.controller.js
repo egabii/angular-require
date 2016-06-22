@@ -1,4 +1,7 @@
 define(['angular'], function(angular){
+
+	var app = angular.module('todomvc');
+
 	var HomeCtrl = function($scope) {
 		$scope.vm = this;
 		this.title = 'hola mundo';
@@ -7,6 +10,7 @@ define(['angular'], function(angular){
 	}
 
 	HomeCtrl.$inject = ['$scope'];
-	
-	return HomeCtrl;
-})
+
+	app.controller('homeCtrl', HomeCtrl);
+
+});

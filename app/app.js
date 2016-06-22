@@ -1,29 +1,19 @@
 
-// define([
-//     'angular',
-//     'require',
-//     'exports',
-//     'module',
-//     'app/controllers/home.controller'
-// ], function (angular, require, exports, module, homeCtrl) {
+define(['angular',
+        'angular-ui-router', './controllers/_index'], function (angular, ui_router, controllers) {
 
-//     var RouteManager = function ($stateProvider, $urlRouterProvider) {
-//         $stateProvider
-//             .state('homepage', {
-//                 url: '/',
-//                 templateUrl: './views/home.tpl.html',
-//                 controller: homeCtrl
-//                 // views: {
-//                 //     'appview@': {
-//                 //     }
-//                 // }
-//             });
-//         $urlRouterProvider.otherwise('/');
-//     };
+    var RouteManager = function ($stateProvider, $urlRouterProvider) {
+        $stateProvider
+            .state('homepage', {
+                url: '/',
+                templateUrl: '<h1>{{title}}</h1> <p>{{message}}</p>',
+                controller: homeCtrl
+            });
+        $urlRouterProvider.otherwise('/');
+    };
 
-//     RouteManager.$inject = ['$stateProvider', '$urlRouterProvider'];
+    RouteManager.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-//     return angular.module('todomvc', [])
-//             .controller('HomeController', homeCtrl)
-//             .config(RouteManager);
-// });
+
+    angular.module('todomvc', ['ui.router']).config(RouteManager);
+});
